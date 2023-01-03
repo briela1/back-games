@@ -23,8 +23,8 @@ const getGenres = require('./src/controllers/getGenres');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(6105, () => {
     getGenres();
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at 6105'); // eslint-disable-line no-console
   });
 });
