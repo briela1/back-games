@@ -17,14 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require('dotenv').config();
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const getGenres = require('./src/controllers/getGenres');
+const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(6105, () => {
+  server.listen(port, () => {
     getGenres();
-    console.log('%s listening at 6105'); // eslint-disable-line no-console
+    console.log(`Server raised in port ${port}`); // eslint-disable-line no-console
   });
 });
